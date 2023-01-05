@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Epoch Week</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <style>
+      body {
+        color: white;
+        background-color: #313a40;
+        font-family: Roboto;
+        font-size: xxx-large;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calendar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">Yoo</div>
+    <script>
+      const start = new Date(1970, 0, 1);
+      const today = new Date();
+      const diff = today - start;
+
+      const weekday = new Array(7);
+      weekday[0] = "Sunday";
+      weekday[1] = "Monday";
+      weekday[2] = "Tuesday";
+      weekday[3] = "Wednesday";
+      weekday[4] = "Thursday";
+      weekday[5] = "Friday";
+      weekday[6] = "Saturday";
+
+      document.getElementById("calendar").innerHTML = `${weekday[today.getDay()]} ${Math.ceil(Math.ceil(diff / (60 * 60 * 24 * 1000) + 3) / 7)} `;
+    </script>
+  </body>
+</html>
