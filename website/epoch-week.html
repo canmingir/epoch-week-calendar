@@ -6,30 +6,59 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <style>
       body {
+        display: none;
         color: white;
         background-color: #313a40;
-        font-family: Roboto;
-        font-size: xxx-large;
+        font-family: Roboto, serif;
+        font-size: 48px;
+      }
+
+      .calendar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <div id="calendar" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">Yoo</div>
+    <div id="calendar" class="calendar"></div>
     <script>
-      const start = new Date(1970, 0, 1);
-      const today = new Date();
-      const diff = today - start;
+      if (window.location.pathname === "/epoch-week") {
+        document.body.style.display = "block";
+      } else {
+        window.location.assign("https://linktr.ee/canmingir");
+      }
 
-      const weekday = new Array(7);
-      weekday[0] = "Sunday";
-      weekday[1] = "Monday";
-      weekday[2] = "Tuesday";
-      weekday[3] = "Wednesday";
-      weekday[4] = "Thursday";
-      weekday[5] = "Friday";
-      weekday[6] = "Saturday";
+      const display = () => {
+        const epoch = new Date(0);
+        const today = new Date();
 
-      document.getElementById("calendar").innerHTML = `${weekday[today.getDay()]} ${Math.ceil(Math.ceil(diff / (60 * 60 * 24 * 1000) + 3) / 7)} `;
+        const diff = today - epoch;
+
+        const weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+
+        let ew = weekday[today.getUTCDay()];
+        ew += " ";
+        ew += Math.ceil(Math.ceil(diff / (60 * 60 * 24 * 1000) + 3) / 7);
+
+        let time = today.getUTCHours();
+        time += ":";
+        time += String(today.getUTCMinutes()).padStart(2, "0");
+
+        document.getElementById("calendar").innerHTML = `${ew}<br/>${time}`;
+      };
+
+      display();
+      setInterval(display, 60 * 1000);
     </script>
   </body>
 </html>
