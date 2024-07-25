@@ -1,0 +1,14 @@
+{
+  "name": "epoch-week",
+  "version": "1.0.0",
+  "description": "Epoch Week Calendar",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha 'src/**/*.spec.js'"
+  },
+  "author": "Can Mingir",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "mocha": "^10.7.0"
+  }
+}
