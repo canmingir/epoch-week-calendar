@@ -2,13 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Epoch Week</title>
+    <title>Epoch Week Calendar</title>
+    <meta name="description" content="The Epoch Week Calendar counts weeks from January 1st, 1970, similar to epoch time but week number instead." />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <style>
       body {
-        display: none;
         color: white;
-        background-color: #313a40;
+        background-color: #151c23;
         font-family: Roboto, serif;
         font-size: 48px;
       }
@@ -20,22 +20,21 @@
         transform: translate(-50%, -50%);
         text-align: center;
       }
+
+      .timezone {
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
     <div id="calendar" class="calendar"></div>
     <script>
-      if (window.location.pathname === "/epoch-week") {
-        document.body.style.display = "block";
-      } else {
-        window.location.assign("https://linktr.ee/canmingir");
+      function ew(date = new Date()) {
+        return Math.floor(Math.floor(date / (60 * 60 * 24 * 1000) + 3) / 7);
       }
 
       const display = () => {
-        const epoch = new Date(0);
         const today = new Date();
-
-        const diff = today - epoch;
 
         const weekday = new Array(7);
         weekday[0] = "Sunday";
@@ -46,15 +45,15 @@
         weekday[5] = "Friday";
         weekday[6] = "Saturday";
 
-        let ew = weekday[today.getUTCDay()];
-        ew += " ";
-        ew += Math.ceil(Math.ceil(diff / (60 * 60 * 24 * 1000) + 3) / 7);
+        let print = weekday[today.getUTCDay()];
+        print += " ";
+        print += ew();
 
         let time = today.getUTCHours();
         time += ":";
         time += String(today.getUTCMinutes()).padStart(2, "0");
 
-        document.getElementById("calendar").innerHTML = `${ew}<br/>${time}`;
+        document.getElementById("calendar").innerHTML = `${print}<br/>${time}<span class="timezone">UTC</span>`;
       };
 
       display();
