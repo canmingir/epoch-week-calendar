@@ -1,8 +1,12 @@
 {
   "name": "epoch-week",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Epoch Week Calendar",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canmingir/epoch-week-calendar.git"
+  },
   "scripts": {
     "test": "mocha 'src/**/*.spec.js'"
   },
