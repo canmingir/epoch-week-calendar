@@ -31,11 +31,13 @@
     <div id="calendar" class="calendar"></div>
     <script>
       // Redirect to personal page
-      // if (window.location.pathname === "/calendar") {
+      const redirect = true;
+
+      if (!redirect || window.location.pathname === "/calendar") {
         document.body.style.display = "block";
-      // } else {
-      //   window.location.assign("https://linktr.ee/canmingir");
-      // }
+      } else {
+        window.location.assign("https://linktr.ee/canmingir");
+      }
 
       function ew(date = new Date()) {
         return Math.floor(Math.floor(date / (60 * 60 * 24 * 1000) + 3) / 7);
