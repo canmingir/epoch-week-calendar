@@ -2,13 +2,19 @@
 
 The Epoch Week Calendar counts weeks from January 1st, 1970, similar to epoch time but week number instead.
 
-<br/>
-
 ```javascript
 function ew(date = new Date()) {
   return Math.floor(Math.floor(date / (60 * 60 * 24 * 1000) + 3) / 7);
 }
 ```
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/c88eda9e-7a7e-483a-a88f-f41c117ba77a" width="500" alt="Epoch Week Calendar Screenshot"/>
+  <br/>
+  <i>As of July 29th, 2024</i>
+  <br/>
+  <a href="https://canmingir.com/calendar">https://canmingir.com/calendar</a>
+</p>
 
 The Gregorian calendar, used in most parts of the world today, is based on a solar calendar, which means it's designed to align with the solar year. This alignment is crucial for consistent seasonal marking, which directly affects agriculture. However, the Gregorian calendar is not without its shortcomings in modern life, especially, inconsistency of months can complicate budgeting, planning, and reporting for businesses and organizations. This irregularity often leads many to rely on week-based calculations instead, which provide a more uniform measure of time for project timelines, payroll, and Scrum sprints, retrospective cycles.
 
