@@ -32,7 +32,7 @@
     <script>
       // Redirect to personal page
       // if (window.location.pathname === "/calendar") {
-      document.body.style.display = "block";
+        document.body.style.display = "block";
       // } else {
       //   window.location.assign("https://linktr.ee/canmingir");
       // }
@@ -61,7 +61,7 @@
         time += ":";
         time += String(today.getUTCMinutes()).padStart(2, "0");
 
-        document.getElementById("calendar").innerHTML = `${print}<br/>${time}<span class="timezone">UTC</span>`;
+        document.getElementById("calendar").innerHTML = `${print}<br/>&nbsp;&nbsp;&nbsp;${time}<span class="timezone">UTC</span>`;
       };
 
       display();
